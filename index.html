@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:red;text-decoration:underline;text-align:center">INTERVIEW PREPARATION QUESTION DAY 2</h1>
+    <h3 style="color:blue">Q:1)What is use of setTimeout()?</h3>
+    <p style="color:green">Ans:-setTimeout() calls a passed-in function once after a specified delay,</p>
+    <pre style="color:green">
+    setTimeout(()=>{
+        console.log("Hi")
+    },1000)
+    </pre>
+    <h3 style="color:blue">Q:2)What is callback hell?</h3>
+    <p style="color:green">Callback Hell is essentially nested callbacks stacked below one another forming a pyramid structure. Every callback depends/waits for the previous callback, thereby making a pyramid structure that affects the readability and maintainability of the code.</p>
+    <pre style="color:green">
+        setTimeout(() => {
+            console.log("Hey,")
+            setTimeout(() => {
+              console.log("have");
+              setTimeout(() =>{
+                console.log("a");
+                setTimeout(() => {
+                  console.log("nice");
+                  setTimeout(() =>{
+                    console.log("day");
+                  },5000)
+                },4000)
+              },3000)
+            },2000)
+          },1000)
+        
+    </pre>
+    <h3 style="color:blue">Q:3)What are promises and why do we need them?</h3>
+    <p style="color:green">Ans:-Promises are used to handle asynchronous operations in JavaScript.</p>
+    <p style="color:green">A promise has three states:-</p>
+    <ul style="color:green">
+        <li>pending:-initial state, neither fulfilled nor rejected.</li>
+        <li>fulfilled:-meaning that the operation was completed successfully.</li>
+        <li>rejected:-meaning that the operation failed.</li>
+    </ul>
+    <pre style="color:green">
+        const promise = new Promise(function(res,rej){
+            let result="";
+            if(result == "yes"){
+              res("promise resolved");
+            }
+            else{
+              rej("promise rejected");
+            }
+          })
+          
+          promise.then(function(data){
+            console.log(data);
+          }).catch(function(err){
+            console.log("Error",err);
+          })
+          
+    
+    </pre>
+
+    <h3 style="color:blue">Q:4)What is promise chaining</h3>
+    <p style="color:green">Ans:-Promise chaining is a syntax that allows you to chain together multiple asynchronous tasks in a specific order</p>
+    <pre style="color:green">
+        new Promise(function (resolve, reject) {
+            setTimeout(() => resolve(2), 1000); 
+          }).then(function (result) { 
+            console.log(result);
+            return result + 2;
+          }).then(function (result) { 
+            console.log(result); 
+            return result + 2;
+          }).then(function (result) {
+            console.log(result); 
+            return result + 2;
+          });
+    </pre>
+    <h3 style="color:blue">Q:5)What is the purpose of async/await keywords?</h3>
+    <p style="color:green">The async function declaration declares an async function where the await keyword is permitted within the function body. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.</p>
+    <p style="color:green">The await operator is used to wait for a Promise and get its fulfillment value. It can only be used inside an async function or at the top level of a module.</p>
+    <pre style="color:green">
+        function resolved() {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve('resolved');
+              }, 2000);
+            });
+          }
+          
+          async function asyncCall() {
+            console.log('calling');
+            const result = await resolved();
+            console.log(result);
+            
+          }
+          
+          asyncCall();
+    </pre>
+    <h3 style="color:blue">Q:6)What is the DOM?</h3>
+    <p style="color:green">The Document Object Model (DOM) is the data representation of the objects that comprise thestructure and content of a document on the web.</p>
+    <h3 style="color:blue">Q:7)Difference between undefined vs not defined vs NaN</h3>
+    <p style="color:green">Undefined:-undefined indicates that a variable has been declared but not given a value</p>
+    <pre style="color:green">
+      var a;
+      console.log(a);
+    </pre>
+    <p style="color:green">Not defined:-not defined indicates that a variable does not exist.</p>
+    <pre style="color:green">
+      console.log(b);
+      let b=10; 
+    </pre>
+    <p style="color:green">NaN:-NaN (Not a Number) is a numeric data type that means an undefined value or value that cannot be represented, especially results of floating-point calculations.</p>
+    <pre style="color:green">
+      console.log(Math.sqrt(-37));
+    </pre>
+    <script src="index.js"></script>
+</body>
+</html>
